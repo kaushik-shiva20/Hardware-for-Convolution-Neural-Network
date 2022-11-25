@@ -1,0 +1,435 @@
+#------------------------------------------------------------
+#
+# Basic Synthesis Script (TCL format)
+#                                  
+# Revision History                
+#   1/15/03  : Author Shane T. Gehring - from class example
+#   2/09/07  : Author Zhengtao Yu      - from class example
+#   12/14/07 : Author Ravi Jenkal      - updated to 180 nm & tcl
+#
+#------------------------------------------------------------
+#---------------------------------------------------------
+# Read in Verilog file and map (synthesize) onto a generic
+# library.
+# MAKE SURE THAT YOU CORRECT ALL WARNINGS THAT APPEAR
+# during the execution of the read command are fixed 
+# or understood to have no impact.
+# ALSO CHECK your latch/flip-flop list for unintended 
+# latches                                            
+#---------------------------------------------------------
+read_verilog $::env(RTL_FILES)
+Loading db file '/afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/liberty/520/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db'
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/S-2021.06-SP3/libraries/syn/dw_foundation.sldb'
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/S-2021.06-SP3/libraries/syn/gtech.db'
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/S-2021.06-SP3/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm'
+  Loading link library 'gtech'
+Loading verilog file '/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v
+Warning: Could not open default SVF file /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/synthesis/svf/default.svf for writing.
+
+Statistics for case statements in always block at line 163 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           172            |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 222 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           242            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine MyDesign line 150 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine MyDesign line 163 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+=======================================================================================
+|        Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=======================================================================================
+|            N_reg            | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       next_state_reg        | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|   is_dut_run_received_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| temp_output_addr_offset_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+=======================================================================================
+
+Inferred memory devices in process
+	in routine MyDesign line 222 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===================================================================================================
+|              Register Name              |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================================
+|    fetch_in_SRAM_addr_gen_reset_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     output_SRAM_addr_gen_reset_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  fetch_kernel_SRAM_addr_gen_reset_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       fetch_kern_buffer_reset_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       input_sram_read_address_reg       | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|        switch_sel_gen_reset_reg         | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|        fetch_in_buffer_reset_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      fsm_in_addr_gen_en_reset_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              dut_busy_reg               | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   fetch_in_SRAM_addr_gen_in_base_reg    | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+| prev_fetch_in_SRAM_addr_gen_in_base_reg | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|              is_N_read_reg              | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|         output_addr_offset_reg          | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|            perInputReset_reg            | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|          temps2changestate_reg          | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|             isFirstBuf_reg              | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|         output_buffer_reset_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        fsm_sel_gen_en_reset_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        fsm_sel_gen_en_enable_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      fsm_in_addr_gen_en_enable_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===================================================================================================
+
+Inferred memory devices in process
+	in routine MyDesign line 367 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+=================================================================================================
+|             Register Name             |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================================
+| fetch_kernel_SRAM_addr_gen_enable_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+=================================================================================================
+
+Inferred memory devices in process
+	in routine MyDesign line 375 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+==========================================================================================
+|         Register Name          |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==========================================================================================
+|    temp_kern_buf_enable_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    temp_in_buf_enable_1_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     temp_in_buf_enable_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   output_sram_write_data_reg   | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| weights_sram_read_address_reg  | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|   fetch_in_buffer_enable_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  fetch_kern_buffer_enable_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| output_sram_write_addresss_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|  output_sram_write_enable_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     tempOutputBufReset_reg     | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|    tempSRAMwriteenable_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   temp_kern_buf_enable_1_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+==========================================================================================
+
+Inferred memory devices in process
+	in routine input_SRAM_addr_gen line 484 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    in_el_ctr_reg    | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   el_ctr_4_4_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  head_row_4_4_reg   | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      done_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      addr_reg       | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|    gen_addr_reg     | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|  head_col_4_4_reg   | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     row_ctr_reg     | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine kernel_SRAM_addr_gen line 554 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    gen_addr_reg     | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|      done_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      addr_reg       | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine input_buffer line 592 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    write_ptr_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      mout_reg       | Flip-flop |  128  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Warning:  /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v:647: Out of bounds bit select out[10], valid bounds are [9:0]. (ELAB-312)
+
+Inferred memory devices in process
+	in routine kernel_buffer line 641 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    write_ptr_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       out_reg       | Flip-flop |  80   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|    switch/715    |   16   |    8    |      4       |
+|    switch/716    |   16   |    8    |      4       |
+|    switch/717    |   16   |    8    |      4       |
+|    switch/718    |   16   |    8    |      4       |
+======================================================
+$display output: ?
+
+Statistics for case statements in always block at line 742 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           757            |    auto/auto     |
+|           788            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine switch_A_I_sel_gen line 742 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     sel_out_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|      isOdd_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|    odd_count_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+$display output: ?
+
+Statistics for case statements in always block at line 820 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           835            |    auto/auto     |
+|           866            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine switch_B_I_sel_gen line 820 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     sel_out_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|      isOdd_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|    odd_count_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+$display output: ?
+
+Statistics for case statements in always block at line 898 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           913            |    auto/auto     |
+|           944            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine switch_C_I_sel_gen line 898 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     sel_out_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|      isOdd_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|    odd_count_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+$display output: ?
+
+Statistics for case statements in always block at line 976 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           991            |    auto/auto     |
+|           1022           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine switch_D_I_sel_gen line 976 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     sel_out_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|      isOdd_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|    odd_count_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   2   |  Y  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 1052 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1063           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine switch_A_C_K_sel_gen line 1052 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     sel_out_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 1086 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1097           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine switch_B_D_K_sel_gen line 1086 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     sel_out_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|       sel_reg       | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 1158 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1170           |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 1231 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1246           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine FSM_sel_gen_en line 1143 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FSM_sel_gen_en line 1158 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    isNewRow_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    mcounter_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   isFirst_s1_reg    | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|   next_state_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FSM_sel_gen_en line 1231 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+==========================================================================================
+|         Register Name          |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==========================================================================================
+|          num_cols_reg          | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|           isEven_reg           | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|         MAC_reset_reg          | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    output_buffer_enable_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      sel_part_change_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|           MAC_en_reg           | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          isFirst_reg           | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|           sel_en_reg           | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       isLastElement_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| ouput_SRAM_addr_gen_enable_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          num_rows_reg          | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+==========================================================================================
+
+Statistics for case statements in always block at line 1381 in file
+	'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1392           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine FSM_addr_gen_en line 1366 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FSM_addr_gen_en line 1381 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+====================================================================================
+|      Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+====================================================================================
+| prev_sel_part_change_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       mcounter_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      next_state_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+====================================================================================
+
+Inferred memory devices in process
+	in routine MAC_A_1 line 1438 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     MAC_out_reg     | Flip-flop |  20   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Warning:  /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v:1478: Net MAC_out_f connected to instance outA is declared as reg data type but is not driven by an always block. (VER-1004)
+Warning:  /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v:1479: Net MAC_out_f connected to instance outB is declared as reg data type but is not driven by an always block. (VER-1004)
+Warning:  /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v:1480: Net MAC_out_f connected to instance outC is declared as reg data type but is not driven by an always block. (VER-1004)
+Warning:  /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v:1481: Net MAC_out_f connected to instance outD is declared as reg data type but is not driven by an always block. (VER-1004)
+Warning:  /afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v:1528: signed to unsigned part selection occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine output_buffer line 1542 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      mbuf_reg       | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    write_ptr_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine output_SRAM_addr_gen line 1574 in file
+		'/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/dut.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    gen_addr_reg     | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|   addr_count_reg    | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      done_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      addr_reg       | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/afs/unity.ncsu.edu/users/s/schundu2/ECE564/Project/project_demo/projectFall2022/rtl/MyDesign.db:MyDesign'
+Loaded 19 designs.
+Current design is 'MyDesign'.
+MyDesign input_SRAM_addr_gen kernel_SRAM_addr_gen input_buffer kernel_buffer switch switch_A_I_sel_gen switch_B_I_sel_gen switch_C_I_sel_gen switch_D_I_sel_gen switch_A_C_K_sel_gen switch_B_D_K_sel_gen FSM_sel_gen_en FSM_addr_gen_en MAC_A_1 MAC_A_4x max_pool_ReLu output_buffer output_SRAM_addr_gen
